@@ -64,6 +64,8 @@ void assert_false(bool bool_expr, struct TestCase* tc, const char* msg,
 */
 void assert_equals(const char* expected, char* actual, struct TestCase* tc,
 										const char* msg, const char* file, int line);
+void assert_equals(const char* expected, const char* actual, struct TestCase* tc,
+																				const char* msg, const char* file, int line);
 void assert_equals(int expected, int actual, struct TestCase* tc,
 										const char* msg, const char* file, int line);
 void assert_equals(double expected, double actual, double tolerance, struct TestCase* tc,

@@ -1,7 +1,7 @@
 /*----------------------------------------------------------
  *				HTBLA-Leonding
  * ---------------------------------------------------------
- * Title:			shortcut.c
+ * Title:			shortcut.cpp
  * Author:			P. Bauer
  * Date:			November 08, 2010
  * ----------------------------------------------------------
@@ -24,7 +24,7 @@ static struct TestCase test_cases[MAX_TEST_FUNCTIONS];
 
 const char* version()
 {
-	return "ShortCut v. 1.3.0";
+	return "ShortCut v. 1.3.1";
 }
 
 void assert_true(bool bool_expr, struct TestCase *tc, const char *msg,
@@ -82,6 +82,12 @@ void assert_equals(int expected, int actual, struct TestCase *tc,
 	char new_msg[MAX_MSG_LEN];
 	sprintf(new_msg, "Expected %d, actual %d. %s", expected, actual, msg);
 	assert_true(expected == actual, tc, new_msg, file, line);
+}
+
+void assert_equals(const char* expected, const char* actual, struct TestCase *tc,
+										const char* msg, const char* file, int line)
+{
+	assert_equals(expected, (char*)actual, tc, msg, file, line);
 }
 
 void assert_equals(double expected, double actual, double tolerance, struct TestCase* tc,
